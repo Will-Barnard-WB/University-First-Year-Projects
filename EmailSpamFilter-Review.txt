@@ -1,0 +1,128 @@
+📧 Email Spam Filter – Neural Network from Scratch
+A binary email spam classifier built entirely from scratch using NumPy for matrix operations — no machine learning libraries involved.
+
+This project demonstrates how a simple feedforward neural network can perform surprisingly well with careful design and training, even on a small dataset.
+
+✅ Training Accuracy: 95.60%
+
+✅ Testing Accuracy: 94.00%
+
+🧠 Neural Network Architecture
+The model is a fully connected feedforward neural network with:
+
+Input Layer: 54 nodes (preprocessed features)
+
+Hidden Layer 1: 64 nodes – ReLU activation
+
+Hidden Layer 2: 32 nodes – ReLU activation
+
+Output Layer: 1 node – Sigmoid activation
+
+🔄 Forward Propagation
+Each layer computes:
+
+ini
+Copy
+Edit
+Z = W · X + b  
+A = activation(Z)
+Where:
+
+W = weights
+
+X = input from previous layer
+
+b = bias
+
+A = activated output
+
+🔢 Activation Functions
+ReLU – Rectified Linear Unit (Hidden Layers)
+Introduces non-linearity and helps avoid vanishing gradients:
+
+lua
+Copy
+Edit
+ReLU(x) = max(0, x)
+Sigmoid (Output Layer)
+Maps final output to a probability between 0 and 1:
+
+cpp
+Copy
+Edit
+Sigmoid(x) = 1 / (1 + exp(-x))
+📉 Loss Function: Binary Cross Entropy
+Used to measure the difference between predicted probabilities and true binary labels:
+
+arduino
+Copy
+Edit
+Loss = -(1/N) * Σ [ y * log(ŷ) + (1 - y) * log(1 - ŷ) ]
+Where:
+
+y = true label
+
+ŷ = predicted output
+
+N = number of samples
+
+⚙️ Training & Optimization
+🔍 Hyperparameter Tuning
+A grid search was performed to tune:
+
+Number of epochs
+
+Learning rate
+
+This helped identify the most effective training configuration.
+
+📉 Gradient Averaging
+Gradient averaging was applied over mini-batches to:
+
+Reduce noise in weight updates
+
+Stabilize learning
+
+Prevent erratic parameter shifts due to small datasets
+
+📊 Dataset Considerations
+Size: ~1000 labeled emails
+
+Impact: A small dataset increases the risk of overfitting
+
+Training accuracy (95.6%) slightly exceeds test accuracy (94%)
+
+Suggests model memorization on training data
+
+🔮 Future Improvements
+Several enhancements could improve performance and generalization:
+
+Implement advanced optimizers (e.g. Adam, RMSProp)
+
+Apply regularization techniques (e.g. L2, Dropout)
+
+Use learning rate schedulers
+
+Improve model architecture or depth
+
+Collect and label more data
+
+🚀 How to Run
+bash
+Copy
+Edit
+# Clone the repository
+git clone https://github.com/yourusername/email-spam-filter.git
+cd email-spam-filter
+
+# Install dependencies (only NumPy required)
+pip install numpy
+
+# Run the training script
+python train.py
+📄 License
+This project is licensed under the MIT License.
+
+🤝 Contributions
+Open to feedback, issues, and pull requests.
+
