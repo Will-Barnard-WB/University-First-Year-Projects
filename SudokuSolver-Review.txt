@@ -1,7 +1,8 @@
 Sudoku Solver Assignment – Project Review
 
 Overview:
-- This project implements an AI Sudoku solver using a backtracking depth-first search (DFS) algorithm combined with constraint propagation. The solver was inspired by course materials and the recommended textbook. The algorithm effectively prunes the search space to solve puzzles efficiently.
+- This project implements an AI Sudoku solver using a backtracking depth-first search (DFS) algorithm combined with constraint propagation. 
+- The solver was inspired by course materials and the recommended textbook. The algorithm effectively prunes the search space to solve puzzles efficiently.
 
 Representation:
 - The Sudoku state is represented as a 9x9 matrix of "final values."
@@ -40,4 +41,5 @@ Future Improvements:
 - Analyze trade-offs between added computational overhead and search space reduction.
 
 Conclusion:
-- The Sudoku solver successfully applies AI search and CSP techniques to efficiently solve puzzles. With room for enhancements, it serves as a solid foundation for exploring advanced AI strategies in constraint-based problem solving.
+- The Sudoku solver successfully applies AI search and CSP techniques to efficiently solve puzzles. 
+- With room for enhancements, it serves as a solid foundation for exploring advanced AI strategies in constraint-based problem solving.
