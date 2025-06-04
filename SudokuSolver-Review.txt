@@ -1,0 +1,43 @@
+Sudoku Solver Assignment – Project Review
+
+Overview:
+- This project implements an AI Sudoku solver using a backtracking depth-first search (DFS) algorithm combined with constraint propagation. The solver was inspired by course materials and the recommended textbook. The algorithm effectively prunes the search space to solve puzzles efficiently.
+
+Representation:
+- The Sudoku state is represented as a 9x9 matrix of "final values."
+- Unassigned cells are marked with -1.
+- Each cell also maintains a list of possible values, updated dynamically with each assignment.
+
+Algorithm:
+- The solver uses backtracking DFS: it assigns values to cells one at a time and backtracks when no legal values remain.
+- On each assignment, the solver checks for Sudoku rule violations.
+- If an invalid state is detected, it backtracks to the previous state and tries a different value.
+- Valid states lead to deeper recursive exploration.
+
+Constraint Propagation:
+- To improve efficiency and reduce the search space, the solver incorporates multiple constraint techniques:
+- Naked Candidates: If n cells share exactly n possible values, these values can be removed from other cells in the same unit (row, column, or box).
+- Hidden Candidates: If n values appear as possibilities only in n cells within a unit, all other possible values can be removed from those cells.
+- Intersection Removal: Values limited to 2 or 3 cells in a unit can be removed from intersecting units.
+- X-Wing: Identifies patterns where values align in two units to eliminate possibilities in other units.
+- AC-3 (Arc Consistency): Prunes states that do not satisfy arc consistency between pairs of cells.
+
+Performance:
+- Without constraints, the solver took approximately 1 minute 38.4 seconds to solve 60 puzzles.
+- Adding constraints reduced this to roughly 0.7 seconds, drastically improving efficiency.
+
+Additional Optimizations:
+- MRV (Minimum Remaining Values): Chooses cells with the fewest possible values first.
+- LCV (Least Constraining Value): Prefers values that least restrict options for other cells.
+
+Complexity:
+- The problem is a Constraint Satisfaction Problem (CSP), modeled as a tree search.
+- Theoretical search space size is approximately 10^198 states, highlighting the importance of pruning.
+
+Future Improvements:
+- Implement more advanced constraints from resources like SudokuWiki.
+- Explore back-jumping techniques such as conflict-directed back-jumping to avoid redundant backtracking steps.
+- Analyze trade-offs between added computational overhead and search space reduction.
+
+Conclusion:
+- The Sudoku solver successfully applies AI search and CSP techniques to efficiently solve puzzles. With room for enhancements, it serves as a solid foundation for exploring advanced AI strategies in constraint-based problem solving.
