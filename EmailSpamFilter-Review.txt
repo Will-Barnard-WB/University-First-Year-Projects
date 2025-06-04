@@ -1,43 +1,56 @@
-# 📧 Email Spam Filter – Neural Network from Scratch
+Neural Network Email Spam Filter – Project Review
 
-A binary email spam classifier built entirely from scratch using **NumPy** for matrix operations — no machine learning libraries involved.
+Overview:
+This project implements a binary email spam classifier using an artificial neural network built entirely from scratch, leveraging only NumPy for matrix manipulation. The model achieves a training accuracy of 95.60% and a testing accuracy of 94.00%.
 
-This project demonstrates how a simple feedforward neural network can perform surprisingly well with careful design and training, even on a small dataset.
+Architecture:
+- Input Layer: 54 nodes (preprocessed email features)
+- Hidden Layer 1: 64 nodes (ReLU activation)
+- Hidden Layer 2: 32 nodes (ReLU activation)
+- Output Layer: 1 node (Sigmoid activation)
 
-- ✅ **Training Accuracy**: 95.60%  
-- ✅ **Testing Accuracy**: 94.00%
-
----
-
-## 🧠 Neural Network Architecture
-
-The model is a fully connected feedforward neural network with:
-
-- **Input Layer**: 54 nodes (preprocessed features)  
-- **Hidden Layer 1**: 64 nodes – ReLU activation  
-- **Hidden Layer 2**: 32 nodes – ReLU activation  
-- **Output Layer**: 1 node – Sigmoid activation
-
----
-
-## 🔄 Forward Propagation
-
-Each layer computes:
-
-Z = W · X + b
-A = activation(Z)
-
+Forward Propagation Formula:
+    Z = W · X + b
+    A = activation(Z)
 Where:
+    - W = weights
+    - X = input
+    - b = bias
+    - A = activated output
 
-- `W` = weights  
-- `X` = input from previous layer  
-- `b` = bias  
-- `A` = activated output
+Activation Functions:
+- ReLU (Rectified Linear Unit) used in hidden layers:
+      ReLU(x) = max(0, x)
+  This function introduces non-linearity and mitigates the vanishing gradient problem.
+  
+- Sigmoid used in the output layer:
+      Sigmoid(x) = 1 / (1 + exp(-x))
+  This maps the output to a probability between 0 and 1 for binary classification.
 
----
+Loss Function:
+- Binary Cross Entropy:
+      Loss = -(1/N) * Σ [ y * log(ŷ) + (1 - y) * log(1 - ŷ) ]
+  Measures the error between predicted probabilities and true labels.
 
-## 🔢 Activation Functions
+Training and Optimization:
+- Hyperparameter tuning via grid search to select optimal values for:
+    - Learning rate
+    - Number of epochs
 
-### ReLU – Rectified Linear Unit (Hidden Layers)
+- Gradient Averaging:
+    - Gradients are averaged across mini-batches to reduce variance and noise in updates.
+    - Helps stabilize training, especially with smaller datasets.
 
-Introduces non-linearity and helps avoid vanishing gradients:
+Considerations:
+- The dataset used contains only ~1000 labeled samples.
+- The close match between training and testing accuracy suggests good generalization but slight overfitting remains a risk due to limited data volume.
+
+Future Improvements:
+- Use of advanced optimizers (e.g. Adam, RMSProp)
+- Application of regularization techniques (e.g. L2 regularization, dropout)
+- Experimentation with deeper or alternative model architectures
+- Implementation of learning rate schedulers
+- Expansion of the dataset to enhance generalization performance
+
+Conclusion:
+This project showcases a functional and interpretable neural network capable of classifying email spam with strong accuracy using fundamental concepts and manual implementation techniques. It serves as a solid base for further enhancements and experimentation in machine learning.
