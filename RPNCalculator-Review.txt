@@ -3,7 +3,8 @@ RPN Calculator in Haskell (Interpreter)
 
 Overview
 --------
-This Haskell program implements a Reverse Polish Notation (RPN) calculator using a simple stack-based interpreter model. It takes a string as input (representing an RPN expression) and evaluates the result using standard arithmetic rules.
+This Haskell program implements a Reverse Polish Notation (RPN) calculator using a simple stack-based interpreter model. 
+It takes a string as input (representing an RPN expression) and evaluates the result using standard arithmetic rules.
 
 Key Steps
 ---------
