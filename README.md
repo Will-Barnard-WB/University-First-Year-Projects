@@ -30,7 +30,7 @@ A collection of programming projects from my first year of university. These spa
 
 ---
 
-### 5. ☕ Java File Reader
+### 5. ☕ Java File Processor
 **Tech:** Java, Multithreading  
 **Description:** A multithreaded Java application that reads and processes large text files concurrently. Showcases synchronization and efficient I/O handling.
 
