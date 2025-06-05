@@ -1,0 +1,41 @@
+Multi-threaded File Processor - Project Review
+
+Overview:
+- The class implements 'Runnable' to process subsets of files in parallel threads. Each file ends with a label #n/N indicating its order n and total files N. 
+- The goal is to merge all file contents into a single file (result.txt) in correct order.
+
+About Runnable and Threading in Java:
+- In Java, multithreading is a way to run multiple tasks concurrently, improving performance especially in I/O-bound or CPU-intensive operations.
+- The Runnable interface is a standard way to define a task that can be run by a thread.
+- A class implementing Runnable must define the run() method, which contains the code executed when the thread starts.
+
+- Multiple Runnable instances can be passed to separate Thread objects and started independently, allowing concurrent execution. 
+- In this code, each PopThread instance runs on its own thread to read and process a subset of files simultaneously, enabling parallel file handling and speeding up the overall processing.
+
+
+Key steps performed by the program:
+
+- File Processing:
+  - During initialization, the constructor reads each file in its list, extracting the entire file content along with the label at the end. 
+  - It parses this label to determine the file’s position (n) and updates the global maximum number of files (N) if needed.
+
+- Position and Content Storage:
+  - For each file, the position and the content are stored locally in separate lists. 
+  - These positions will later be used to write the contents into the output file in the correct order.
+
+- Writing Output:
+  - The run() method manages the writing process. 
+  - It continuously checks whether the next expected file number is available in the positions list. 
+  - When found, it retrieves the corresponding content and appends it to a shared output file called result.txt.
+
+- Synchronization:
+  - To coordinate access to shared resources such as the file counter and output file writing, the code uses synchronized static methods. 
+  - This ensures that multiple threads do not interfere with each other when incrementing the current file count or writing to the output file.
+
+- File Writing Logic:
+  - The program initially writes to result.txt by overwriting it. 
+  - For subsequent writes, it appends the content, preserving the order of file contents as defined by their position labels.
+
+Conclusion:
+- The program effectively divides the task of reading multiple files and merging their contents into a single output file, using multiple threads to process different subsets of files concurrently. 
+- It uses the label inside each file to preserve the correct order in the combined output.
