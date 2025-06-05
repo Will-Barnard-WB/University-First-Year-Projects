@@ -1,4 +1,4 @@
-Dice Game Solver Project 
+Dice Game Solver - Project Review
 
 Game Rules:
 - You start with 0 points.
