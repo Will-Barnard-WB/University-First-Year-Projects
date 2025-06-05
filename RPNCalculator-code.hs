@@ -21,7 +21,7 @@ evaluate (x:xs) (ya:yb:ys)
   | otherwise = evaluate xs (read(x):ya:yb:ys)
 
 
--- The final function to call for RPN Calculator 
+-- The final function to call the RPN Calculator 
 
 run :: String -> Int
 run xs = evaluate (tokenize(xs)) []
