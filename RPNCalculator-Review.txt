@@ -36,12 +36,11 @@ Formal Semantics:
 - Run: A sequence of transitions from an initial to a final state. A run is successful if it ends in a success state.
   The return value of a successful run is the integer i in (ε i, ε).
 
-Summary:
+Conclusion:
 - This Haskell program demonstrates:
    - Functional parsing
    - Stack-based expression evaluation
    - Recursive pattern matching
    - Formal modeling of interpreters
-
-It serves as a clear and educational example of building a small interpreter in Haskell using mathematical principles of operational semantics.
+- It serves as a clear and educational example of building a small interpreter in Haskell using mathematical principles of operational semantics.
 
