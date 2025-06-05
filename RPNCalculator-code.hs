@@ -1,8 +1,9 @@
-
--- RPN Calculator in Haskell (Interpreter)
+-- tokenizing the input (breaking up into tokens)
 
 tokenize :: String -> [String]
 tokenize x = words x
+
+-- using recursion to complete both parsing and evaluation of the calculator's inputs
 
 evaluate :: [String] -> [Int] -> Int
 evaluate [] [x] = x
