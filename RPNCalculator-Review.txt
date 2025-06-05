@@ -1,0 +1,73 @@
+RPN Calculator in Haskell (Interpreter)
+=======================================
+
+Overview
+--------
+This Haskell program implements a Reverse Polish Notation (RPN) calculator using a simple stack-based interpreter model. It takes a string as input (representing an RPN expression) and evaluates the result using standard arithmetic rules.
+
+Key Steps
+---------
+1. Tokenizing:
+   - The input string is split into individual tokens (numbers and operators).
+
+2. Parsing:
+   - The tokens are parsed into a format suitable for processing (a list of strings).
+
+3. Evaluating:
+   - The expression is evaluated using a recursive function and a stack of integers.
+   - Each token is processed:
+     - Numbers are pushed onto the stack.
+     - Operators pop values off the stack, compute a result, and push the result back.
+
+Formal Semantics
+----------------
+This calculator follows a formal state-transition model:
+
+- **Stack (S)**: A sequence of integers, defined inductively:
+    S ::= ε | S i
+  where ε is the empty stack, and S i adds integer i to stack S.
+
+- **Expression (E)**: A sequence of numbers and arithmetic operators:
+    E ::= ε | n E | + E | * E | - E
+  where n ∈ ℕ (natural numbers).
+
+- **State**: A pair (S, E), where S is the current stack and E is the remaining expression.
+  - Initial State: (ε, E) — stack is empty at the beginning.
+  - Final State: No further transitions are possible.
+
+- **Transitions**:
+    (S, n E)        → (S n, E)
+    (S i j, + E)    → (S (i + j), E)
+    (S i j, * E)    → (S (i × j), E)
+    (S i, - E)      → (S (-i), E)
+
+- **Success State**: A final state of the form (ε i, ε), i.e. the stack holds a single result and the expression is empty.
+
+- **Failure State**: A final state that is not a success state (e.g., multiple items left on the stack).
+
+- **Run**: A sequence of transitions from an initial to a final state.
+  A run is successful if it ends in a success state.
+  The return value of a successful run is the integer i in (ε i, ε).
+
+Example
+-------
+Input: "3 4 + 2 *"
+Tokenized: ["3", "4", "+", "2", "*"]
+Evaluation steps:
+    Push 3
+    Push 4
+    Add → 7
+    Push 2
+    Multiply → 14
+Final result: 14
+
+Summary
+-------
+This Haskell program demonstrates:
+- Functional parsing
+- Stack-based expression evaluation
+- Recursive pattern matching
+- Formal modeling of interpreters
+
+It serves as a clear and educational example of building a small interpreter in Haskell using mathematical principles of operational semantics.
+
