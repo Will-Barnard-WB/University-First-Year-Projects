@@ -1,4 +1,4 @@
-RPN Calculator in Haskell (Interpreter)
+RPN Calculator in Haskell (Interpreter) - Project Review
 
 Overview:
 - This Haskell program implements a Reverse Polish Notation (RPN) calculator using a simple stack-based interpreter model. 
