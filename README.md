@@ -14,12 +14,12 @@ A collection of programming projects from my first year of university. These spa
 
 ### 2. 🔢 Sudoku Solver
 **Tech:** Python, CSP (Constraint Satisfaction Problem), Backtracking DFS  
-**Description:** Solves any valid Sudoku board using constraint propagation and backtracking. Includes support for visualizing steps and heuristic optimization (e.g., MRV, forward checking).
+**Description:** Solves any valid Sudoku board using constraint propagation and backtracking. Includes support for visualizing steps and heuristic optimization.
 
 ---
 
 ### 3. 🧮 RPN Calculator (Reverse Polish Notation)
-**Tech:** Possibly a simple Compiler or Stack-based Interpreter (language TBD)  
+**Tech:** Haskell, Stack-based Interpreter
 **Description:** Evaluates arithmetic expressions written in Reverse Polish Notation. May be extended to parse and compile infix to postfix expressions.
 
 ---
@@ -42,16 +42,4 @@ A collection of programming projects from my first year of university. These spa
 
 ---
 
-## 📌 Notes
-- Some project details and languages may be updated as the repository evolves.
-- This repository is primarily for learning and demonstration purposes.
 
----
-
-## 🛠️ Setup Instructions
-
-Each project contains its own README with setup and usage instructions. To get started:
-
-```bash
-git clone https://github.com/yourusername/University-First-Year-Projects.git
-cd University-First-Year-Projects/project-name
