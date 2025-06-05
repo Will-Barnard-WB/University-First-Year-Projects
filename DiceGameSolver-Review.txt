@@ -1,0 +1,72 @@
+Dice Game Solver Project 
+
+Game Rules:
+- You start with 0 points.
+- Roll three fair six-sided dice.
+- After rolling, choose one of the following:
+
+  1. Stick:
+     - Accept the current dice values.
+     - If two or more dice show the same number, those dice are flipped upside down:
+       1 ↔ 6, 2 ↔ 5, 3 ↔ 4.
+     - Sum the dice values and add the total to your points.
+     - This becomes your final score.
+
+  2. Reroll:
+     - You may hold any combination of dice at their current values.
+     - Reroll the remaining dice.
+     - Each reroll costs 1 point (penalty).
+     - Your score may become negative due to reroll penalties.
+
+Optimal Score and Strategy:
+- The best possible score is 18, achieved by rolling three 1s or two 1s and one 6 on the first roll.
+- The reroll penalty prevents infinite rerolling to reach the perfect score.
+- If the current dice value exceeds the expected value of rerolling (after penalty), you should stick.
+- This optimal decision is independent of your current total score.
+- For example, even with a low current score, if you roll three 6s, rerolling is expected to yield a better final score despite the penalty.
+
+Agent Strategies:
+
+  1. AlwaysHoldAgent:
+     - Always sticks immediately, regardless of dice values.
+
+  2. PerfectionistAgent:
+     - Keeps rerolling all dice until the perfect score is achieved.
+     - Ignores penalties from rerolling.
+
+  - Neither strategy is optimal on its own:
+    - The AlwaysHoldAgent misses out on improving scores.
+    - The PerfectionistAgent accumulates heavy penalties if the perfect roll takes too long.
+
+  - A hybrid agent combining these strategies can outperform both by deciding when to chase perfection and when to hold.
+
+
+Advanced Approach - Value Iteration:
+- Manually crafting the optimal policy is difficult.
+- Value iteration is a method to autonomously learn the optimal policy by estimating expected future rewards.
+- By calculating expected rewards for each state, the agent can choose actions that maximize long-term score.
+
+Value Iteration Algorithm:
+
+- Value iteration computes the value V(s) of each state s recursively:
+  
+  V(s) = max_a [ R(s,a) + γ Σ_{s'} P(s'|s,a) V(s') ]
+  
+  where:
+    - V(s): value of state s,
+    - a: action,
+    - R(s,a): immediate reward for taking action a in state s,
+    - γ: discount factor (0 ≤ γ ≤ 1),
+    - P(s'|s,a): probability of transitioning to state s' from s via action a.
+
+- The optimal policy π* selects actions maximizing expected value:
+  
+  π*(s) = argmax_a [ R(s,a) + γ Σ_{s'} P(s'|s,a) V(s') ]
+
+---
+
+Conclusion:
+- The multi-step value iteration agent learns to optimally balance the risk and reward of rerolling versus sticking.
+- This agent consistently outperforms the AlwaysHold, Perfectionist, and Hybrid agents by making decisions that maximize expected future rewards.
+- By evaluating long-term consequences of actions, value iteration achieves superior average scores over many games.
+
