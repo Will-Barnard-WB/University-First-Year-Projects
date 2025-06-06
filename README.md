@@ -36,9 +36,9 @@ A collection of programming projects from my first year of university. These spa
 
 ---
 
-### 6. 💬 Simple Echo Client-Server App
+### 6. 💬 Echo Client-Server App
 **Tech:** Java, Client/Server Architecture, TCP Sockets 
-**Description:**  A client-server app where the server echoes back text messages sent by the client across a port, demonstrating basic socket communication.
+**Description:**  A client-server app where the server echoes back text messages sent by the client, demonstrating basic socket communication.
 
 ---
 
