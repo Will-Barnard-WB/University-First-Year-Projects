@@ -36,9 +36,9 @@ A collection of programming projects from my first year of university. These spa
 
 ---
 
-### 6. 💬 Simple SMS App
-**Tech:** Python or Java (TBD), Client/Server Architecture  
-**Description:** A basic messaging system with client-server communication over sockets. Supports simple text message exchange and user session management.
+### 6. 💬 Simple Echo Client-Server App
+**Tech:** Java, Client/Server Architecture, TCP Sockets 
+**Description:**  A client-server app where the server echoes back text messages sent by the client across a port, demonstrating basic socket communication.
 
 ---
 
