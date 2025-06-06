@@ -18,7 +18,7 @@ A collection of programming projects from my first year of university. These spa
 
 ---
 
-### 3. 🧮 RPN Calculator (Reverse Polish Notation)
+### 3. 🧮 RPN Calculator 
 **Tech:** Haskell, Stack-based Interpreter
 **Description:** Evaluates arithmetic expressions written in Reverse Polish Notation. May be extended to parse and compile infix to postfix expressions.
 
